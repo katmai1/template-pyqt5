@@ -10,7 +10,7 @@ function info {
 
 function build_icons {
     echo -e "\tFile: 'icons/icons.qrc'"
-    pyrcc5 icons/icons.qrc -o app/icons_rc.py
+    pyrcc5 icons/icons.qrc -o icons_rc.py
 }
 
 #
@@ -27,14 +27,13 @@ function build_UiFiles {
 #
 
 function build_project_file {
-    cd app
     echo " " > project.pro
     find . -type f -name "*.py" | while read filename
     do
         echo "SOURCES += $filename" >> project.pro
     done
-    echo "TRANSLATIONS += i18n/en_EN.ts" >> project.pro
-    echo "TRANSLATIONS += i18n/es_ES.ts" >> project.pro
+    echo "TRANSLATIONS += app/i18n/en_EN.ts" >> project.pro
+    echo "TRANSLATIONS += app/i18n/es_ES.ts" >> project.pro
     pylupdate5 -noobsolete project.pro
     # pylupdate5 project.pro
     lrelease project.pro
