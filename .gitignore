@@ -1,7 +1,6 @@
-*/__pycache__/
+**/__pycache__/
 */.vscode/
 *.pyc
-/app/ui/__pycache__/
-/app/main/__pycache__/
 /.vscode/
 *.directory
+/__pycache__/
